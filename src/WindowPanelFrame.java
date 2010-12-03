@@ -17,16 +17,18 @@ public class WindowPanelFrame extends JFrame {
    	Keyboard keyboard;
 	
     public WindowPanelFrame() {
-    	addFrame();
+    	addPanel();
+    	setSpecifics();
     }
 
-	public void addFrame() {
+	public void addPanel() {
 		panel = new WindowPanel();
     	add((Component)panel);
-    	
+	}
+	
+	public void setSpecifics() {
     	setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(800, 600);
-        
         setLocationRelativeTo(null);
         setTitle("Bare");
         setResizable(false);
@@ -34,8 +36,8 @@ public class WindowPanelFrame extends JFrame {
 	}
 
 	public class WindowPanel extends JPanel{
-    
-	    public WindowPanel() {
+
+		public WindowPanel() {
 	    	addKeyListener(new TAdapter());
 	       	setFocusable(true);
 	        setBackground(Color.BLACK);

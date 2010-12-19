@@ -1,4 +1,5 @@
 package initialize;
+
 import io.Keyboard;
 import io.Frame;
 import mvc.Controller;
@@ -6,7 +7,6 @@ import mvc.Model;
 import mvc.ModelViewPair;
 import mvc.SharedObject;
 import mvc.View;
-
 
 public class ObjectFactory {
 

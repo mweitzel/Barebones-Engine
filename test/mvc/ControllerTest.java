@@ -10,16 +10,32 @@ import org.junit.Test;
 import org.mockito.InOrder;
 
 public class ControllerTest {
+	
+	Model mockedModel;
+	ModelViewPair mvPair;
+	Frame mockedFrame;
+	Keyboard mockedKeyboard;
+	
+	Controller controller;
+	
+	@Before
+	public void setUp() {
+		mockedModel = mock(Model.class);
+		mvPair = new ModelViewPair(mockedModel, mock(View.class));
+		mockedFrame = mock(Frame.class);
+		mockedKeyboard = mock(Keyboard.class);
+		
+		controller = new Controller(mvPair, mockedFrame, mockedKeyboard);
+	}
 
 	@Test
-	public void callsTickFunctionForModelAndView() {
-		Model mockedModel = mock(Model.class);
-		ModelViewPair mvPair = new ModelViewPair(mockedModel, mock(View.class));
-		Frame mockedFrame = mock(Frame.class);
-		Keyboard mockedKeyboard = mock(Keyboard.class);
-		
-		Controller controller = new Controller(mvPair, mockedFrame, mockedKeyboard);
-		
+	public void viewAndKeybaordAreSetOnFrame() {
+		verify(mockedFrame).setView(mvPair.getView());
+		verify(mockedFrame).setKeyboard(mockedKeyboard);
+	}
+
+	@Test
+	public void callsTickFunctionForModelAndView() {		
 		controller.tick();
 		
 		verify(mockedModel).tick();
@@ -27,14 +43,7 @@ public class ControllerTest {
 	}
 
 	@Test
-	public void modelIsTickedBeforePainted() {
-		Model mockedModel = mock(Model.class);
-		ModelViewPair mvPair = new ModelViewPair(mockedModel, mock(View.class));
-		Frame mockedFrame = mock(Frame.class);
-		Keyboard mockedKeyboard = mock(Keyboard.class);
-		
-		Controller controller = new Controller(mvPair, mockedFrame, mockedKeyboard);
-		
+	public void modelIsTickedBeforePainted() {		
 		controller.tick();
 		
 		InOrder inOrder = inOrder(mockedModel, mockedFrame);
@@ -42,8 +51,4 @@ public class ControllerTest {
 		inOrder.verify(mockedModel).tick();
 		inOrder.verify(mockedFrame).repaint();
 	}
-//
-//	@Test
-//	public void 
-	
 }

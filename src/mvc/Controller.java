@@ -29,5 +29,4 @@ public class Controller {
 	private void paint() {
 		frame.repaint();
 	}
-
 }

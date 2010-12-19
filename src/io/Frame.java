@@ -12,7 +12,6 @@ import javax.swing.JPanel;
 
 import mvc.View;
 
-
 public class Frame extends JFrame {
 
    	Object panel;

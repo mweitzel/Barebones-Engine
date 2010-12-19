@@ -1,4 +1,6 @@
 package io;
+import initialize.ObjectFactory;
+
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Graphics;
@@ -14,21 +16,25 @@ import mvc.View;
 
 public class Frame extends JFrame {
 
-	Object panel;
-   	View view;
-   	Keyboard keyboard;
+	private Object panel;
+	private View view;
+	private Keyboard keyboard;
 	
-    public Frame() {
-    	addPanel();
-    	setSpecifics();
+    public Frame(Keyboard keyboard) {
+    	this.keyboard = keyboard;
     }
+
+	public void initiate() {
+		addPanel();
+    	setSpecifics();
+	}
 
 	public void addPanel() {
 		panel = new Panel();
     	add((Component)panel);
 	}
 	
-	public void setSpecifics() {
+	private void setSpecifics() {
 		setUndecorated(true);
     	setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(1024, 600);
@@ -36,10 +42,9 @@ public class Frame extends JFrame {
         setTitle("Bare");
         setResizable(false);
         setVisible(true);
-        setAlwaysOnTop(true);
     }
 
-	public class Panel extends JPanel{
+	private class Panel extends JPanel{
 
 		public Panel() {
 	    	addKeyListener(new TAdapter());
@@ -67,14 +72,6 @@ public class Frame extends JFrame {
 	    	}
 	    	catch(Exception e){}
 	    }
-	}
-
-	public void removeFrame() {
-		panel = null;
-	}
-	  
-	public void setKeyboard(Keyboard keyboard){
-		this.keyboard = keyboard;
 	}
 	
 	public void setView(View view) {

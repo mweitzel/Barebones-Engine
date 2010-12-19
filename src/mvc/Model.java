@@ -8,8 +8,8 @@ public class Model {
 	private Keyboard keyboard;
 	private SharedObject sharedObject;
 	
-	public Model(Keyboard input, SharedObject sharedObject) {
-		this.keyboard = input;
+	public Model(Keyboard keyboard, SharedObject sharedObject) {
+		this.keyboard = keyboard;
 		this.sharedObject = sharedObject;
 	}
 

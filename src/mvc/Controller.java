@@ -14,7 +14,6 @@ public class Controller {
 		this.frame = frame;
 		this.mvPair = mvPair;
 		frame.setView(mvPair.getView());
-		frame.setKeyboard(keyboard);
 	}
 	
 	public void tick() {

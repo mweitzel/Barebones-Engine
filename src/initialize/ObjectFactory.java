@@ -12,15 +12,23 @@ import mvc.View;
 
 public class ObjectFactory {
 
+	//Singleton Pattern
+	private static final ObjectFactory INSTANCE = new ObjectFactory();
+	 
+	public static ObjectFactory getInstance() {
+		return INSTANCE;
+	}
+	
+	// Private constructor prevents instantiation from other classes
+	private ObjectFactory(){
+		keyboard = new Keyboard(); 
+		frame = new Frame(keyboard);
+	}
+	 
 	private Keyboard keyboard;
 	private Frame frame;
 	
-	public ObjectFactory(){
-		keyboard = new Keyboard(); 
-		frame = new Frame();
-	}
-	
-	public Controller controller() {
+	private Controller controller() {
 		return new Controller(modelViewPair(), frame, keyboard);
 	}
 
@@ -40,7 +48,12 @@ public class ObjectFactory {
 	public Ticker ticker() {
 		Ticker ticker = new Ticker(controller());
 		Timer timer = new Timer(20, ticker);
-		ticker.setAndStartTimer(timer);
+		ticker.setTimer(timer);
 		return ticker;
 	}
+
+	public Frame getFrame() {
+		return frame;
+	}
+
 }

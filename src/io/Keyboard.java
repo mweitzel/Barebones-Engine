@@ -11,14 +11,14 @@ public class Keyboard {
 		setUp();
 	}
 	
-	public HashMap<Integer, Boolean> buttonMap = new HashMap<Integer, Boolean>();
+	private HashMap<Integer, Boolean> buttonMap = new HashMap<Integer, Boolean>();
 	
-	void setUp(){
+	private void setUp(){
 		for(int i = 0; i < 600; i++)
 			buttonMap.put(/*KeyEvent.VK_A-VK_?*/i, false);
 	}
 	
-	public void keyPressed(KeyEvent e) {
+	protected void keyPressed(KeyEvent e) {
 		
 		int eventKey = e.getKeyCode();
 
@@ -29,7 +29,7 @@ public class Keyboard {
 		}
 	}	
 	
-	public void keyReleased(KeyEvent e) {
+	protected void keyReleased(KeyEvent e) {
 		int eventKey = e.getKeyCode();
 
 		for(Object key: buttonMap.keySet()){

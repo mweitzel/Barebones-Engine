@@ -23,8 +23,11 @@ public class Ticker implements ActionListener {
 		controller.tick();
 	}
 
-	public void setAndStartTimer(Timer timer) {
+	public void setTimer(Timer timer) {
 		this.timer = timer;
+	}
+
+	public void startTimer() {
 		timer.start();
 	}
 	

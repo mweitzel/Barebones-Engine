@@ -28,9 +28,8 @@ public class ControllerTest {
 	}
 
 	@Test
-	public void viewAndKeybaordAreSetOnFrame() {
+	public void viewIsSetOnFrame() {
 		verify(mockedFrame).setView(mvPair.getView());
-		verify(mockedFrame).setKeyboard(mockedKeyboard);
 	}
 
 	@Test

@@ -1,6 +1,6 @@
 package initialize;
 import io.Keyboard;
-import io.WindowPanelFrame;
+import io.Frame;
 import mvc.Controller;
 import mvc.Model;
 import mvc.ModelViewPair;
@@ -11,15 +11,15 @@ import mvc.View;
 public class ObjectFactory {
 
 	private Keyboard keyboard;
-	private WindowPanelFrame windowPanelFrame;
+	private Frame frame;
 	
 	public ObjectFactory(){
 		keyboard = new Keyboard(); 
-		windowPanelFrame = new WindowPanelFrame();
+		frame = new Frame();
 	}
 	
 	public Controller controller() {
-		return new Controller(modelViewPair(), windowPanelFrame, keyboard);
+		return new Controller(modelViewPair(), frame, keyboard);
 	}
 
 	private ModelViewPair modelViewPair() {
@@ -32,7 +32,7 @@ public class ObjectFactory {
 	}
 
 	private View View(SharedObject sharedObject) {
-		return new View(windowPanelFrame, sharedObject);
+		return new View(frame, sharedObject);
 	}
 
 	public Ticker ticker() {

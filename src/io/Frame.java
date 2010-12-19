@@ -13,20 +13,19 @@ import javax.swing.JPanel;
 import mvc.View;
 
 
-public class WindowPanelFrame extends JFrame {
+public class Frame extends JFrame {
 
    	Object panel;
    	View view;
    	Keyboard keyboard;
 	
-    public WindowPanelFrame() {
+    public Frame() {
     	addPanel();
     	setSpecifics();
-    	
     }
 
 	public void addPanel() {
-		panel = new WindowPanel();
+		panel = new Panel();
     	add((Component)panel);
 	}
 	
@@ -41,9 +40,9 @@ public class WindowPanelFrame extends JFrame {
         setAlwaysOnTop(true);
     }
 
-	public class WindowPanel extends JPanel{
+	public class Panel extends JPanel{
 
-		public WindowPanel() {
+		public Panel() {
 	    	addKeyListener(new TAdapter());
 	       	setFocusable(true);
 	        setBackground(Color.BLACK);

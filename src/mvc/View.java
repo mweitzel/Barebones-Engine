@@ -1,7 +1,7 @@
 package mvc;
 
 
-import io.WindowPanelFrame;
+import io.Frame;
 
 import java.awt.Graphics2D;
 import java.awt.image.ImageObserver;
@@ -12,8 +12,8 @@ public class View {
 	private ImageObserver imageObserver;
 	private SharedObject sharedObject;
 
-	public View(WindowPanelFrame windowPanelFrame, SharedObject sharedObject) {
-		imageObserver = windowPanelFrame;
+	public View(Frame frame, SharedObject sharedObject) {
+		imageObserver = frame;
 		this.sharedObject = sharedObject;
 	}
 

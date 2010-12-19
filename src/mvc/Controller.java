@@ -1,21 +1,20 @@
 package mvc;
 
 import io.Keyboard;
-import io.WindowPanelFrame;
+import io.Frame;
 
 public class Controller {
 
-	public WindowPanelFrame windowPanelFrame;
+	private Frame frame;
 	private Keyboard keyboard;
+	private ModelViewPair mvPair;
 	
-	ModelViewPair mvPair;
-	
-	public Controller(ModelViewPair mvPair, WindowPanelFrame windowPanelFrame, Keyboard keyboard){
+	public Controller(ModelViewPair mvPair, Frame frame, Keyboard keyboard){
 		this.keyboard = keyboard;
-		this.windowPanelFrame = windowPanelFrame;
+		this.frame = frame;
 		this.mvPair = mvPair;
-		windowPanelFrame.setView(mvPair.view);
-		windowPanelFrame.setKeyboard(keyboard);
+		frame.setView(mvPair.getView());
+		frame.setKeyboard(keyboard);
 	}
 	
 	public void tick() {
@@ -23,16 +22,12 @@ public class Controller {
 		paint();
 	}
 
-	void removeFrame() {
-		windowPanelFrame.removeFrame();
-	}
-
 	private void modelTick() {
-		mvPair.model.tick();
+		mvPair.getModel().tick();
 	}
 
 	private void paint() {
-		windowPanelFrame.repaint();
+		frame.repaint();
 	}
 
 }

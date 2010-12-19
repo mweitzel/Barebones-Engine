@@ -17,11 +17,14 @@ public class Ticker implements ActionListener {
 	
 	public Ticker(Controller controller){
 		this.controller = controller;
-		timer = new Timer(20, this);
+		startTimer();
+	}
+
+	private void startTimer() {
+		timer = new Timer(20, this); //how do I create this and inject it when Ticker is the thing that needs the events
 		timer.start();
 	}
 
-	@Override
 	public void actionPerformed(ActionEvent e) {
 		controller.tick();
 	}

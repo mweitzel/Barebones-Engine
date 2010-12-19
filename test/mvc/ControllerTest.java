@@ -1,6 +1,5 @@
 package mvc;
 
-import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
 import io.Frame;
 import io.Keyboard;

@@ -1,5 +1,7 @@
 package initialize;
 
+import javax.swing.Timer;
+
 import io.Keyboard;
 import io.Frame;
 import mvc.Controller;
@@ -36,6 +38,9 @@ public class ObjectFactory {
 	}
 
 	public Ticker ticker() {
-		return new Ticker(controller());
+		Ticker ticker = new Ticker(controller());
+		Timer timer = new Timer(20, ticker);
+		ticker.setAndStartTimer(timer);
+		return ticker;
 	}
 }

@@ -14,7 +14,7 @@ import mvc.View;
 
 public class Frame extends JFrame {
 
-   	Object panel;
+	Object panel;
    	View view;
    	Keyboard keyboard;
 	
@@ -63,7 +63,7 @@ public class Frame extends JFrame {
 	    	graphics2D.setColor(Color.WHITE);
 	    	try{
 	    		String mouseXY = ""+getMousePosition().x + ", " +getMousePosition().y;
-	    		graphics2D.drawString(mouseXY, 10, 10);
+	    		graphics2D.drawString(mouseXY, 10, 20);
 	    	}
 	    	catch(Exception e){}
 	    }

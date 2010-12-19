@@ -1,10 +1,8 @@
 package io;
 
-import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
 
 import java.awt.Component;
-import java.awt.Panel;
 
 import javax.swing.JFrame;
 
@@ -20,7 +18,7 @@ public class FrameTest {
 		Frame spyFrame = spy(frame);
 		
 		//this throws errors something fierce!
-		System.out.println("spying on final methods..");
+		System.out.println("spying on final methods in "+this.getClass()+" .. initiate test");
 		spyFrame.initiate();
 
 		verify(spyFrame).add((Component) anyObject());
@@ -31,6 +29,8 @@ public class FrameTest {
 		verify(spyFrame).setTitle((String) anyObject());
 		verify(spyFrame).setResizable(false);
 		verify(spyFrame).setVisible(true);
+		
+		System.out.println("---------------------------------------------------------------");
 	}
 	
 }

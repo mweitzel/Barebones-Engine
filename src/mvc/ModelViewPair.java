@@ -1,6 +1,4 @@
-
-
-
+package mvc;
 
 public class ModelViewPair {
 

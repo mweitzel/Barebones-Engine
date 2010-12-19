@@ -1,3 +1,4 @@
+package io;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Graphics;
@@ -9,6 +10,8 @@ import java.awt.event.KeyEvent;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import mvc.View;
+
 
 public class WindowPanelFrame extends JFrame {
 
@@ -19,6 +22,7 @@ public class WindowPanelFrame extends JFrame {
     public WindowPanelFrame() {
     	addPanel();
     	setSpecifics();
+    	
     }
 
 	public void addPanel() {
@@ -27,13 +31,15 @@ public class WindowPanelFrame extends JFrame {
 	}
 	
 	public void setSpecifics() {
+		setUndecorated(true);
     	setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(800, 600);
+        setSize(1024, 600);
         setLocationRelativeTo(null);
         setTitle("Bare");
         setResizable(false);
         setVisible(true);
-	}
+        setAlwaysOnTop(true);
+    }
 
 	public class WindowPanel extends JPanel{
 
@@ -50,7 +56,6 @@ public class WindowPanelFrame extends JFrame {
 	    
 	    public void paint(Graphics graphics) {
 	    	super.paint(graphics);
-	    	view.drawInGameGraphics((Graphics2D)graphics);
 	    	drawMouseXY((Graphics2D)graphics);
 	    	Toolkit.getDefaultToolkit().sync();
 	    	graphics.dispose();

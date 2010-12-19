@@ -1,3 +1,7 @@
+package mvc;
+
+import io.Keyboard;
+import io.WindowPanelFrame;
 
 public class Controller {
 
@@ -6,18 +10,15 @@ public class Controller {
 	
 	ModelViewPair mvPair;
 	
-	//Stack<ModelViewPair> mvPairStack = new Stack<ModelViewPair>();
-	
-	public Controller(ModelViewPair baseOfMVPairStack, WindowPanelFrame windowPanelFrame, Keyboard keyboard){
+	public Controller(ModelViewPair mvPair, WindowPanelFrame windowPanelFrame, Keyboard keyboard){
 		this.keyboard = keyboard;
 		this.windowPanelFrame = windowPanelFrame;
-		mvPair = baseOfMVPairStack;
+		this.mvPair = mvPair;
 		windowPanelFrame.setView(mvPair.view);
 		windowPanelFrame.setKeyboard(keyboard);
 	}
 	
 	public void tick() {
-		
 		modelTick();
 		paint();
 	}
@@ -29,7 +30,6 @@ public class Controller {
 	private void modelTick() {
 		mvPair.model.tick();
 	}
-
 
 	private void paint() {
 		windowPanelFrame.repaint();
